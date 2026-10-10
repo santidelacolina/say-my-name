@@ -1,5 +1,5 @@
 # Deploy automático a GitHub Pages (gratis) en cada push a main.
-# Requisito único: en Settings → Pages → Source elegir "GitHub Actions".
+# configure-pages intenta habilitar Pages solo; si falla, en Settings → Pages → Source elegir "GitHub Actions".
 name: Deploy a GitHub Pages
 
 on:
@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Activa GitHub Pages (origen: GitHub Actions) si todavía no está habilitado.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/setup-node@v4
         with:
           node-version: 22
