@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+
+/* Modo oscuro controlado por clase (toggle manual) en lugar de solo media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Paleta del juego: turquesa + magenta, con acentos sol/lima para equipos 3 y 4. */
+  --color-turquoise-50: #e6fbf9;
+  --color-turquoise-100: #c3f5f0;
+  --color-turquoise-200: #8ae9e0;
+  --color-turquoise-300: #4fd9cd;
+  --color-turquoise-400: #1fcbbd;
+  --color-turquoise-500: #00c2b2;
+  --color-turquoise-600: #009e92;
+  --color-turquoise-700: #007c73;
+  --color-turquoise-800: #005d57;
+  --color-turquoise-900: #00403c;
+
+  --color-magenta-50: #ffe8f4;
+  --color-magenta-100: #ffc6e4;
+  --color-magenta-200: #ff8fcb;
+  --color-magenta-300: #ff5cb3;
+  --color-magenta-400: #f52c9c;
+  --color-magenta-500: #e6007e;
+  --color-magenta-600: #c10069;
+  --color-magenta-700: #990054;
+  --color-magenta-800: #72003f;
+  --color-magenta-900: #4d002b;
+
+  --color-sun-300: #ffe08a;
+  --color-sun-400: #ffd159;
+  --color-sun-500: #ffc12e;
+  --color-sun-600: #e0a400;
+  --color-sun-700: #a67800;
+
+  --color-lime-300: #d6f77a;
+  --color-lime-400: #c3f24a;
+  --color-lime-500: #aee621;
+  --color-lime-600: #8cc10f;
+  --color-lime-700: #6a930c;
+
+  --color-ink-50: #f6f7fb;
+  --color-ink-100: #eceef6;
+  --color-ink-200: #d9dcea;
+  --color-ink-300: #b7bcd3;
+  --color-ink-400: #8a90ad;
+  --color-ink-500: #5f6584;
+  --color-ink-600: #444a66;
+  --color-ink-700: #2d3249;
+  --color-ink-800: #1b1f33;
+  --color-ink-900: #0f1222;
+
+  --font-display:
+    'Avenir Next', 'Segoe UI Variable Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-pop: 0 10px 30px -10px rgb(0 0 0 / 0.35);
+  --shadow-glow-turquoise: 0 0 0 4px rgb(0 194 178 / 0.25), 0 12px 32px -8px rgb(0 194 178 / 0.55);
+  --shadow-glow-magenta: 0 0 0 4px rgb(230 0 126 / 0.25), 0 12px 32px -8px rgb(230 0 126 / 0.55);
+
+  --animate-fade-up: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-card-in: card-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-shake: shake 0.4s ease-in-out both;
+  --animate-pulse-ring: pulse-ring 0.9s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-confetti: confetti 2.8s linear infinite;
+  --animate-wiggle: wiggle 1.2s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pop {
+    from {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: translateX(40px) rotate(3deg) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) rotate(0) scale(1);
+    }
+  }
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20%,
+    60% {
+      transform: translateX(-8px);
+    }
+    40%,
+    80% {
+      transform: translateX(8px);
+    }
+  }
+  @keyframes pulse-ring {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-2deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(2deg);
+    }
+  }
+  @keyframes confetti {
+    0% {
+      transform: translateY(-10vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(720deg);
+      opacity: 0.6;
+    }
+  }
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-50 text-ink-900 font-sans antialiased dark:bg-ink-900 dark:text-ink-50;
+    min-height: 100dvh;
+    overscroll-behavior-y: none;
+    background-image:
+      radial-gradient(60% 50% at 0% 0%, rgb(0 194 178 / 0.18), transparent 60%),
+      radial-gradient(50% 50% at 100% 100%, rgb(230 0 126 / 0.16), transparent 60%);
+    background-attachment: fixed;
+  }
+  button {
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  .text-gradient-brand {
+    background: linear-gradient(100deg, var(--color-turquoise-400), var(--color-magenta-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .glass {
+    @apply bg-white/80 backdrop-blur-md dark:bg-ink-800/80;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

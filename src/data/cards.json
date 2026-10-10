@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "id": "titulos",
+      "name": "Títulos",
+      "emoji": "🎬",
+      "description": "Películas, series, libros, canciones y referencias pop.",
+      "cards": [
+        "Titanic", "El Padrino", "Harry Potter", "Stranger Things", "La Casa de Papel",
+        "El Rey León", "Toy Story", "Volver al Futuro", "Jurassic Park", "Matrix",
+        "Los Simpson", "Friends", "Breaking Bad", "Game of Thrones", "El Señor de los Anillos",
+        "Star Wars", "Buscando a Nemo", "Shrek", "Frozen", "Los Increíbles",
+        "Piratas del Caribe", "Rápidos y Furiosos", "Avengers", "Spider-Man", "Batman",
+        "Tiburón", "Rocky", "Forrest Gump", "El Chavo del 8", "Casados con Hijos",
+        "Don Quijote", "Cien Años de Soledad", "El Principito", "Romeo y Julieta", "Drácula",
+        "Bohemian Rhapsody", "Despacito", "La Bamba", "Thriller", "Mamma Mia",
+        "El Juego del Calamar", "Merlí", "El Marginal", "Okupas", "Chiquititas",
+        "Bob Esponja", "Pokémon", "Dragon Ball", "Mario Bros", "Minecraft"
+      ]
+    },
+    {
+      "id": "personas",
+      "name": "Personas",
+      "emoji": "🧑‍🎤",
+      "description": "Famosos, figuras históricas y personajes de ficción.",
+      "cards": [
+        "Lionel Messi", "Diego Maradona", "Cristiano Ronaldo", "Michael Jordan", "Usain Bolt",
+        "Shakira", "Bad Bunny", "Michael Jackson", "Freddie Mercury", "Madonna",
+        "Albert Einstein", "Napoleón", "Cleopatra", "Frida Kahlo", "Leonardo da Vinci",
+        "Papa Francisco", "Barack Obama", "Donald Trump", "Elon Musk", "Bill Gates",
+        "Marilyn Monroe", "Charles Chaplin", "Elvis Presley", "Los Beatles", "Taylor Swift",
+        "Harry Potter", "Darth Vader", "Homero Simpson", "Mickey Mouse", "Batman",
+        "Superman", "Mujer Maravilla", "Sherlock Holmes", "Santa Claus", "Drácula",
+        "Mafalda", "El Zorro", "Pikachu", "Bob Esponja", "Shrek",
+        "Gandalf", "Jack Sparrow", "Indiana Jones", "Rocky Balboa", "Terminator",
+        "Charly García", "Gustavo Cerati", "Mercedes Sosa", "Carlos Gardel", "Ricardo Darín"
+      ]
+    },
+    {
+      "id": "vale-todo",
+      "name": "Vale Todo",
+      "emoji": "🎲",
+      "description": "Objetos, acciones, animales y conceptos: todo vale.",
+      "cards": [
+        "Paraguas", "Heladera", "Bicicleta", "Guitarra", "Almohada",
+        "Cepillo de dientes", "Semáforo", "Montaña rusa", "Microondas", "Linterna",
+        "Elefante", "Pingüino", "Jirafa", "Cocodrilo", "Mosquito",
+        "Nadar", "Estornudar", "Bostezar", "Tropezar", "Aplaudir",
+        "Cumpleaños", "Casamiento", "Resaca", "Vacaciones", "Lunes",
+        "Dentista", "Bombero", "Astronauta", "Peluquero", "Árbitro",
+        "Asado", "Mate", "Empanada", "Pizza", "Helado",
+        "Selfie", "Wifi", "Batería baja", "Spam", "Emoji",
+        "Fantasma", "Zombie", "Sirena", "Dragón", "Unicornio",
+        "Karaoke", "Zumba", "Yoga", "Fútbol", "Ajedrez"
+      ]
+    },
+    {
+      "id": "principal",
+      "name": "Principal",
+      "emoji": "⭐",
+      "description": "El mazo clave: más difícil, más puntos de orgullo.",
+      "cards": [
+        "Revolución Francesa", "Calentamiento global", "Agujero negro", "Inflación", "Democracia",
+        "Big Bang", "Evolución", "Gravedad", "Fotosíntesis", "ADN",
+        "Inteligencia artificial", "Criptomoneda", "Realidad virtual", "Teletrabajo", "Streaming",
+        "Déjà vu", "Nostalgia", "Vergüenza ajena", "Procrastinar", "Paranoia",
+        "Mundial de fútbol", "Juegos Olímpicos", "Maratón", "Penal", "Offside",
+        "Luna de miel", "Crisis de los 40", "Primer beso", "Despedida de soltero", "Divorcio",
+        "Muralla China", "Torre Eiffel", "Pirámides de Egipto", "Machu Picchu", "Estatua de la Libertad",
+        "Obelisco", "Cataratas del Iguazú", "Glaciar Perito Moreno", "Caminito", "Bariloche",
+        "Mona Lisa", "La Última Cena", "Noche Estrellada", "El Grito", "David de Miguel Ángel",
+        "Teoría de la relatividad", "Efecto mariposa", "Ley de Murphy", "Síndrome de Estocolmo", "Placebo"
+      ]
+    },
+    {
+      "id": "relampago",
+      "name": "Relámpago",
+      "emoji": "⚡",
+      "description": "Palabras cortas y rápidas. 5 segundos por carta.",
+      "cards": [
+        "Gato", "Perro", "Vaca", "Mono", "Pez",
+        "Dormir", "Correr", "Bailar", "Llorar", "Reír",
+        "Sol", "Lluvia", "Nieve", "Viento", "Rayo",
+        "Teléfono", "Reloj", "Lentes", "Sombrero", "Zapato",
+        "Beso", "Abrazo", "Choque", "Saludo", "Guiño",
+        "Avión", "Auto", "Tren", "Barco", "Moto",
+        "Fuego", "Hielo", "Agua", "Tierra", "Aire",
+        "Bebé", "Abuelo", "Rey", "Payaso", "Ninja",
+        "Pelota", "Libro", "Llave", "Espejo", "Cuchara",
+        "Boxeo", "Tenis", "Básquet", "Golf", "Surf"
+      ]
+    }
+  ]
+}

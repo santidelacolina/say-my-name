@@ -1,161 +1,172 @@
-# Say My Name
+# Say My Name · versión web 📱🗣️
 
-Un juego de cartas vibrante, rápido y absurdo, inspirado en la energía de la mesa y el desafío de adivinar sin decir la palabra clave.
+Versión interactiva del party game **Say My Name**: el celular hace de **mazo de cartas** y
+**cronómetro**. Se juega en equipos, un jugador actúa y el resto adivina sin que se diga la
+palabra clave. Cuatro rondas con restricciones progresivas, puntuación en tiempo real y
+resultados finales con confeti.
 
-> "Se juega en equipos, se elige una categoría y se arma el caos para adivinar la mayor cantidad de tarjetas posible."
+> "Se juega en equipos, se elige una categoría y se arma el caos para adivinar la mayor
+> cantidad de tarjetas posible."
 
-## ¿De qué se trata?
-
-`Say My Name` es una experiencia de party game donde un jugador intenta hacer que su equipo adivine palabras o conceptos usando gestos, sonidos, mímica y mucha improvisación. Cada ronda tiene una regla distinta y la velocidad importa tanto como la creatividad.
-
-La idea es simple:
-
-- un equipo elige una categoría;
-- un integrante intenta hacer entender la palabra sin decirla;
-- el resto del equipo debe adivinarla antes de que se termine el tiempo;
-- cada tarjeta acertada suma puntos;
-- gana el equipo con más puntos.
+- **100 % gratis**: se publica en GitHub Pages con un workflow de GitHub Actions.
+- **Instalable (PWA)**: funciona offline y se agrega a la pantalla de inicio del celular.
+- **Sin backend**: todo corre en el navegador. Otro celular se "une" cargando el mismo mazo
+  con un link o código.
 
 ---
 
-## Objetivo del juego
+## Cómo desplegarlo (desde el celular, gratis)
 
-Adivinar la mayor cantidad de tarjetas lo más rápido posible.
+1. Hacé merge de esta rama en `main` (desde la app de GitHub o la web móvil).
+2. En el repo entrá a **Settings → Pages → Build and deployment → Source** y elegí
+   **GitHub Actions**. Es un solo paso y se hace una única vez.
+3. Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que compila y publica en
+   `https://<tu-usuario>.github.io/say-my-name/`.
+4. Abrí ese link en el celular y usá **"Agregar a pantalla de inicio"** para tenerlo como app.
 
-Cada carta tiene una palabra o concepto que debe ser interpretado por el jugador activo. El equipo debe descubrirla antes de que finalice el tiempo, sin romper las reglas de la ronda.
-
----
-
-## Preparación
-
-1. Formá equipos de 2 a 3 personas.
-2. Elegí una categoría para la ronda:
-   - Títulos
-   - Personas
-   - Vale todo
-   - Principal
-   - Relámpago
-3. Repartí los mazos correspondientes.
-4. Designá un jugador activo por equipo.
-5. Poné el cronómetro a 30 segundos o 5 segundos según la ronda.
+Si preferís Vercel o Netlify, el build es estándar (`npm run build`, carpeta `dist`). Solo
+definí la variable `VITE_BASE=/` para que los assets no apunten a `/say-my-name/`.
 
 ---
 
-## Categorías
+## Cómo se juega en la app
 
-### 1. Títulos
-Palabras relacionadas con cine, series, libros, programas, eventos o referencias pop.
+1. **Crear partida**: elegí la categoría para las rondas 1 a 3 (la ronda 4 siempre usa el
+   mazo ⚡ Relámpago), armá de 2 a 4 equipos y, opcionalmente, cargá los jugadores de cada uno
+   para que la app rote quién actúa en cada turno.
+2. **Compartir** (opcional): en la intro de cada ronda hay un botón para enviar el link de la
+   partida. Quien lo abra carga el mismo mazo en el mismo orden, así cada equipo puede tener
+   el mazo en su propio celular.
+3. **Turno**: la pantalla muestra a qué equipo le toca y quién actúa. Al tocar
+   **"¡Listo, empezar!"** aparece la carta y arranca el cronómetro.
+   - ✅ **Adivinada**: suma 1 punto al instante y pasa a la próxima carta.
+   - ⏭️ **Saltar**: la carta vuelve al fondo del mazo.
+   - 🚫 **¡Falta! Dijo la palabra**: la carta se invalida y no suma (la regla clave del juego).
+   - ⏸️ **Pausar** por si alguien interrumpe.
+4. **Resumen del turno**: puntos ganados y qué pasó con cada carta.
+5. **Resultados**: ranking, cartas adivinadas por equipo y botón de **Revancha** (mismos
+   equipos y categoría, mazo nuevo).
 
-### 2. Personas
-Personajes famosos, celebridades, figuras históricas o incluso personajes de ficción.
+### Las 4 rondas
 
-### 3. Vale todo
-La categoría más libre: cualquier cosa vale si sirve para hacer que el equipo adivine.
+| Ronda | Regla | Tiempo | Mazo |
+| --- | --- | --- | --- |
+| 1 🗣️ Vale hablar | Hablar, actuar, sonidos y gestos. Prohibida la palabra clave. | 30 s por turno | Categoría elegida |
+| 2 ☝️ Una sola palabra | Una palabra por carta + expresión corporal. | 30 s por turno | Categoría elegida |
+| 3 🤫 Silencio total | Solo mímica y sonidos. | 30 s por turno | Categoría elegida |
+| 4 ⚡ Relámpago | 5 segundos por carta, 8 cartas por turno. Si vence el tiempo la carta se pierde. | 5 s por carta | Relámpago |
 
-### 4. Principal
-Cartas clave del mazo principal con mayor valor y más desafío.
+Cada carta adivinada vale **1 punto**. Gana el equipo con más puntos al terminar la ronda 4.
 
-### 5. Relámpago
-Rondas rápidas, intensas y con menos tiempo para pensar.
+### Categorías (50 cartas cada una)
 
----
+- 🎬 **Títulos**: películas, series, libros, canciones y referencias pop.
+- 🧑‍🎤 **Personas**: famosos, figuras históricas y personajes de ficción.
+- 🎲 **Vale Todo**: objetos, acciones, animales y conceptos.
+- ⭐ **Principal**: el mazo clave, más difícil.
+- ⚡ **Relámpago**: palabras cortas para la ronda final.
 
-## Rondas
-
-### Ronda 1
-
-- El jugador activo usa el mazo principal.
-- Tiene 30 segundos para hacer que su equipo adivine.
-- Puede hablar, actuar, hacer sonidos, gesticular, etc.
-- No puede decir la palabra clave ni ninguna de sus variantes.
-- Si se menciona la palabra, la ronda se invalida.
-
-### Ronda 2
-
-- El jugador activo tiene 30 segundos.
-- Puede decir solo una palabra por carta.
-- Debe actuar con la expresión corporal y la creatividad.
-- No puede usar la palabra exacta ni frases largas para aclarar.
-
-### Ronda 3
-
-- El jugador activo tiene 30 segundos.
-- Debe actuar sin hablar.
-- Solo puede hacer sonidos o gestos.
-- El equipo debe interpretar y adivinar.
-
-### Ronda 4
-
-- El jugador activo usa el mazo relámpago.
-- Tiene 5 segundos para actuar.
-- El equipo debe adivinar con rapidez y precisión.
-- La presión aumenta y las ideas se vuelven locas.
+Las cartas viven en `src/data/cards.json`. Para agregar o cambiar cartas alcanza con editar
+ese archivo.
 
 ---
 
-## Puntuación
+## Stack
 
-Cada carta adivinada vale 1 punto.
+| Capa | Tecnología |
+| --- | --- |
+| UI | React 19 + TypeScript |
+| Estilos | Tailwind CSS 4 (paleta turquesa / magenta, modo oscuro por clase) |
+| Estado | Zustand 5 (con persistencia en `localStorage`) |
+| Build | Vite 7 |
+| PWA | `vite-plugin-pwa` (manifest + service worker con precache) |
+| Deploy | GitHub Actions → GitHub Pages |
 
-- Si el equipo adivina correctamente la tarjeta, suma 1 punto.
-- Si la ronda se invalida por hablar la palabra prohibida, no suma puntos.
-- El equipo con mayor cantidad de puntos gana la partida.
+Sin dependencias de UI pesadas: las animaciones son CSS puro y los sonidos se sintetizan con
+Web Audio API (no hay archivos de audio que descargar).
+
+## Scripts
+
+```bash
+npm install        # instalar dependencias
+npm run dev        # servidor de desarrollo
+npm run build      # typecheck + build de producción en dist/
+npm run preview    # servir dist/ localmente
+npm run typecheck  # solo TypeScript
+npm run icons      # regenerar los PNG de la PWA desde public/icons/icon.svg (usa Playwright)
+```
+
+## Estructura de carpetas
+
+```
+src/
+├── data/cards.json        # las 250 cartas (5 categorías × 50)
+├── types/game.ts          # tipos del dominio (Team, CardData, RoundConfig, Phase...)
+├── config/
+│   ├── rounds.ts          # las 4 rondas: regla, tiempo, mazo
+│   └── teams.ts           # colores y límites de equipos
+├── store/
+│   ├── gameStore.ts       # máquina de estados de la partida (Zustand)
+│   └── settingsStore.ts   # tema y sonido
+├── hooks/
+│   ├── useTimer.ts        # cronómetro basado en Date.now() (sin drift)
+│   ├── useSound.ts        # efectos con Web Audio
+│   └── useTheme.ts        # aplica la clase `dark`
+├── utils/
+│   ├── cards.ts           # mazo barajado por semilla, palabras prohibidas
+│   ├── random.ts          # RNG determinístico (mulberry32) + shuffle
+│   └── shareCode.ts       # codifica/decodifica la partida en un link
+├── components/
+│   ├── ui/                # Button, Panel, Chip, TextField, Screen... (genéricos)
+│   └── game/              # WordCard, TimerRing, Scoreboard, CategoryPicker...
+├── screens/               # una pantalla por fase del juego
+├── App.tsx                # elige la pantalla según `phase`
+└── main.tsx
+```
+
+### Flujo de fases
+
+```
+home → setup ─┐
+home → join ──┴→ round-intro → turn-ready → turn → turn-summary ─┬→ turn-ready (otro equipo)
+                       ▲                                        ├→ round-intro (otra ronda)
+                       └──────────── revancha ◄── results ◄──────┘
+```
 
 ---
 
-## Regla clave
+## Para quien viene de .NET / Vue / SQL
 
-No se puede:
+Algunas equivalencias para leer el código más rápido:
 
-- decir la palabra clave;
-- decir frases que la describan demasiado claramente;
-- hacer ruido de la forma que rompa la mecánica de la ronda;
-- repetir la palabra o palabras derivadas que hagan imposible la adivinanza.
+| En este proyecto | Equivalente que ya conocés |
+| --- | --- |
+| `src/types/game.ts` | Carpeta `Models/` con DTOs. Las `type` unions (`'speak' \| 'silence'`) son enums que se serializan como string. |
+| `store/gameStore.ts` (Zustand) | Un store de **Pinia**: estado + acciones. En .NET, un servicio Singleton con estado y métodos que devuelven un estado nuevo (inmutable, estilo reducer). |
+| `useGameStore((s) => s.teams)` | Un `computed` sobre el store. El componente se re-renderiza solo si cambia esa porción. |
+| Hooks (`useTimer`, `useSound`) | **Composables** de Vue 3 (`useX()` que devuelve refs y funciones). |
+| `useEffect` | `watch` / `onMounted` + `onUnmounted` juntos: corre cuando cambian sus dependencias y limpia al desmontar. |
+| Componentes con `children` | Componentes con `<slot>`. Las props son la misma idea. |
+| `App.tsx` con el mapa `SCREENS[phase]` | `<component :is="...">`: un router "a mano" porque es una sola página. |
+| `persist()` de Zustand | Pinia persisted state. Guarda el store en `localStorage` para sobrevivir recargas. |
+| Semilla + `shuffle` determinístico | `new Random(seed)`: misma semilla, mismo orden de mazo en todos los celulares. |
+| Tailwind `@theme` en `index.css` | Variables de SCSS / design tokens. Las clases `bg-turquoise-500` salen de ahí. |
 
----
-
-## Ganar la partida
-
-El triunfo no depende solo de la velocidad, sino también de la coordinación, la improvisación y la capacidad de hacer reír a todo el grupo mientras se juega.
-
-El equipo que logre acumular más puntos en las rondas gana la partida y se corona campeón del caos.
-
----
-
-## Ejemplo de partida
-
-- Equipo A elige la categoría "Personas".
-- Lucas intenta hacer que su equipo adivine "Lionel Messi".
-- Hace gestos, señala con la mano, apunta a la camiseta y simula una jugada.
-- El equipo adivina en segundos.
-- Suman 1 punto.
-- Luego pasa a la siguiente ronda y todo se vuelve más rápido, más intenso y más absurdo.
+Una diferencia importante respecto de Vue: en React el estado es **inmutable**. En vez de
+`team.score++` se construye un objeto nuevo (`{ ...team, score: team.score + 1 }`), como
+harías con un `record` en C# usando `with`.
 
 ---
 
-## Ideas para jugar online o en grupo
+## Limitaciones conocidas
 
-- Reuní a 2 equipos en una videollamada.
-- Usá una pizarra o un documento compartido para llevar puntaje.
-- Hacé rondas rápidas de 30 segundos para mantener la energía alta.
-- Animá a la improvisación: vale todo puede ser lo más hilarante.
-
----
+- **No hay sincronización en vivo entre celulares.** "Unirse" carga la misma configuración y
+  el mismo orden de mazo, pero cada celular lleva su propio puntaje. Para sincronizar en
+  tiempo real haría falta un backend (por ejemplo Firebase o Supabase, ambos con capa
+  gratuita).
+- La validación de "no decir la palabra clave" es manual: la carta muestra las palabras
+  prohibidas y el equipo marca **¡Falta!** cuando ocurre. El navegador no escucha el audio.
 
 ## Licencia
 
 Este proyecto es una adaptación de una experiencia de juego de mesa para uso creativo y lúdico.
-
----
-
-## Conclusión
-
-`Say My Name` es un juego de reacción, improvisación y estrategia donde la frase que define la partida es simple: "adiviná antes de que se termine el tiempo".
-
-Si te gusta la presión, las risas y las palabras imposibles de explicar con un solo gesto, este juego es para vos.
-
----
-
-## Misión
-
-Crear una versión digital o remix del juego para jugar en grupo, con estilo visual potente, dinamismo y experiencia festiva.
