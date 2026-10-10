@@ -17,12 +17,15 @@ resultados finales con confeti.
 
 ## Cómo desplegarlo (desde el celular, gratis)
 
-1. Hacé merge de esta rama en `main` (desde la app de GitHub o la web móvil).
-2. En el repo entrá a **Settings → Pages → Build and deployment → Source** y elegí
-   **GitHub Actions**. Es un solo paso y se hace una única vez.
-3. Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que compila y publica en
-   `https://<tu-usuario>.github.io/say-my-name/`.
-4. Abrí ese link en el celular y usá **"Agregar a pantalla de inicio"** para tenerlo como app.
+1. Cada push a `main` ejecuta `.github/workflows/deploy.yml`, que compila la app y publica
+   la carpeta `dist/` en la rama `gh-pages`. GitHub activa Pages solo al detectar esa rama,
+   no hace falta configurar nada en Settings.
+2. La app queda en `https://<tu-usuario>.github.io/say-my-name/`. El primer deploy puede
+   tardar un par de minutos en aparecer; los siguientes son casi inmediatos.
+3. Abrí ese link en el celular y usá **"Agregar a pantalla de inicio"** para tenerlo como app.
+
+Si en Settings → Pages el origen quedara distinto de `gh-pages`, elegí **Deploy from a
+branch → gh-pages / (root)**.
 
 Si preferís Vercel o Netlify, el build es estándar (`npm run build`, carpeta `dist`). Solo
 definí la variable `VITE_BASE=/` para que los assets no apunten a `/say-my-name/`.
